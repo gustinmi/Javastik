@@ -17,6 +17,8 @@ public class PlainConnectionFactory implements ConnectionFactory {
         try {
 
             Class.forName("org.h2.Driver"); // load class and trigger sdtatic initialization
+
+            log.info("JDBC driver class loaded");
             
         } catch (ClassNotFoundException e) {
             log.log(Level.SEVERE, e.getMessage(), e);
@@ -26,6 +28,8 @@ public class PlainConnectionFactory implements ConnectionFactory {
     
     public Connection getConnection() throws SQLException {
         try {
+            
+            log.info("Getting new connection");
             
             // get the database via java JNDI syntax  
             return DriverManager.getConnection("jdbc:h2:mem:myDataBase;INIT=RUNSCRIPT FROM 'classpath:h2/init.sql'", "sa", "");

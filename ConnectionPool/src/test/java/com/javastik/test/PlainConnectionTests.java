@@ -27,7 +27,7 @@ public class PlainConnectionTests {
 	}
 	
 	@Test
-    public void getObject() throws SQLException {
+    public void getScalar() throws SQLException {
 	    
 	    StatementWithParams stmt = new StatementWithParams("select name from test where id = ?"); 
         stmt.addParam(new SqlQueryParam(Types.INTEGER, new Integer(1).toString()));
