@@ -1,4 +1,4 @@
-package com.javastik;
+package com.javastik.jdbc;
 
 import java.sql.Connection;
 import java.sql.SQLException;

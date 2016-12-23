@@ -1,4 +1,4 @@
-package com.javastik;
+package com.javastik.jdbc;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.logging.Logger;
-import com.javastik.StatementWithParams.SqlQueryParam;
+import com.javastik.jdbc.StatementWithParams.SqlQueryParam;
 
 
 /**
@@ -17,7 +17,7 @@ import com.javastik.StatementWithParams.SqlQueryParam;
  */
 public class JdbcProtocolNormalizer {
 	
-	public static final Logger log = com.javastik.logging.LoggingFactory.loggerForThisClass();
+	public static final Logger log = com.javastik.jdbc.logging.LoggingFactory.loggerForThisClass();
 	 
     public static class DateTimeNormalizer {
    

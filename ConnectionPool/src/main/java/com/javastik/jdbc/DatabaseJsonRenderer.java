@@ -1,4 +1,4 @@
-package com.javastik;
+package com.javastik.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;

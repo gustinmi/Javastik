@@ -1,9 +1,9 @@
-package com.javastik.dao;
+package com.javastik.jdbc.dao;
 
 import java.sql.Types;
-import com.javastik.DatabaseJsonRenderer.JsonRenderType;
-import com.javastik.StatementWithParams;
-import com.javastik.StatementWithParams.SqlQueryParam;
+import com.javastik.jdbc.StatementWithParams;
+import com.javastik.jdbc.DatabaseJsonRenderer.JsonRenderType;
+import com.javastik.jdbc.StatementWithParams.SqlQueryParam;
 
 public class TestTableDao {
     

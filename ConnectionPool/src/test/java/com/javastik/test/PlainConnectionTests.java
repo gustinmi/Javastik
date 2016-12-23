@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import java.sql.Types;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import com.javastik.*;
-import com.javastik.DatabaseJsonRenderer.JsonRenderType;
-import com.javastik.StatementWithParams.SqlQueryParam;
+import com.javastik.jdbc.*;
+import com.javastik.jdbc.DatabaseJsonRenderer.JsonRenderType;
+import com.javastik.jdbc.StatementWithParams.SqlQueryParam;
 
 public class PlainConnectionTests {
     

@@ -1,4 +1,4 @@
-package com.javastik;
+package com.javastik.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,7 +26,7 @@ public class PoolConnectionFactory implements ConnectionFactory {
 	}
 
 	/* (non-Javadoc)
-     * @see com.javastik.ConnectionFactory#getConnection()
+     * @see com.javastik.jdbc.ConnectionFactory#getConnection()
      */
 	@Override
     public Connection getConnection() throws SQLException {

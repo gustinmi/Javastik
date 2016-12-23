@@ -1,4 +1,4 @@
-package com.javastik.utils;
+package com.javastik.jdbc.utils;
 
 public class StringUtils {
 

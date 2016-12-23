@@ -1,8 +1,8 @@
-package com.javastik.dao;
+package com.javastik.jdbc.dao;
 
-import com.javastik.ConnectionFactory;
-import com.javastik.Database;
-import com.javastik.PlainConnectionFactory;
+import com.javastik.jdbc.ConnectionFactory;
+import com.javastik.jdbc.Database;
+import com.javastik.jdbc.PlainConnectionFactory;
 
 public class DaoPlainDatabaseProvider {
 

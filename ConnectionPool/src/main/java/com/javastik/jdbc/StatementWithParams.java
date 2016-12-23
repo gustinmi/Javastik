@@ -1,10 +1,10 @@
-package com.javastik;
+package com.javastik.jdbc;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-import com.javastik.utils.StringUtils;
+import com.javastik.jdbc.utils.StringUtils;
 
 /** Lightweight wrapper for executing SQL on JDBC database.
  * It takes care of jdbc internals and offers possibility to further instrumentalize the database access.
