@@ -1,6 +1,7 @@
 package com.javastik.dao;
 
 import java.sql.Types;
+import com.javastik.DatabaseJsonRenderer.JsonRenderType;
 import com.javastik.StatementWithParams;
 import com.javastik.StatementWithParams.SqlQueryParam;
 
@@ -13,7 +14,7 @@ public class TestTableDao {
         StatementWithParams stmt = new StatementWithParams(BY_ID_SQL);  //$NON-NLS-1$
         stmt.addParam(new SqlQueryParam(Types.INTEGER, new Integer(1).toString()));
         
-        String scalar = (String) DaoPlainDatabaseProvider.database.getScalar(stmt);
+        String scalar = (String) DaoPlainDatabaseProvider.database.getJson(stmt, JsonRenderType.OBJECT);
         return scalar;
         
     }

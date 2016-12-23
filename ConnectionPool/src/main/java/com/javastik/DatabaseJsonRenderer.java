@@ -3,8 +3,55 @@ package com.javastik;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DatabaseJsonRenderer {
+    
+    public static enum JsonRenderType {
+        
+        /**
+         * Primeren za rezultate v tabelarni obliki. Rezultati vsebujejo layout (ime fielda iz baze, ime fielda v rezultatih) in podatke, ki so mapirani glede na layout.  
+         */
+        ARRAY,
+        /**
+         * Najbolj naraven tip.  Primeren za rezultate v tabelarni obliki. Vrne array objektov, kjer je IME_DB_STOLPCA : VREDNOST
+         */
+        ARRAY_ASOCIATIVE,
+        /**
+         * Enovrstična tabelarna oblika. Primeren za querje, kjer se vrne vrednost več stolpcev za ENO ! vrstico
+         */
+        OBJECT, 
+        /**
+         * Isto kot ARRAY, le da je brez layouta
+         */
+        ARRAY_WITHOUT_LAYOUT
+    }
+    
+    public static String displayResults(Statement stmt, JsonRenderType rType) throws SQLException {
+        
+        if (stmt == null) throw new IllegalStateException("Statement is empty");
+        ResultSet rs = stmt.getResultSet();
+        if (rs == null)  throw new IllegalStateException("There is no result set in statement");
+
+        switch (rType) {
+        
+//            case ARRAY:
+//                displayResultSet(pw, rs, stmt.getMaxRows(), false, limitCellLength);
+//                break;
+//            case ARRAY_ASOCIATIVE:
+//                displayResultSetAsoc(pw, rs);
+//                break;
+//            case ARRAY_WITHOUT_LAYOUT:
+//                displayResultSet(pw, rs, stmt.getMaxRows(), true, limitCellLength);
+//                break;
+            case OBJECT:
+                return displayObject(rs);
+            default: throw new IllegalArgumentException("Render type not suported :" + rType.name());
+                
+        }
+            
+    }
+    
 
     private static String displayObject(ResultSet rs) throws SQLException {
         StringBuilder pw = new StringBuilder();
