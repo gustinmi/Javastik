@@ -1,4 +1,4 @@
-package com.javastik.jdbc.logging;
+package com.javastik.logging;
 
 import java.util.logging.Logger;
 

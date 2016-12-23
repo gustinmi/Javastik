@@ -1,11 +1,11 @@
-package com.javastik.jdbc;
+package com.javastik.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.javastik.jdbc.logging.LoggingFactory;
+import com.javastik.logging.LoggingFactory;
 
 public class PlainConnectionFactory implements ConnectionFactory {
     

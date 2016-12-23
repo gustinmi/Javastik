@@ -4,21 +4,36 @@ import static org.junit.Assert.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.Random;
+import java.util.logging.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import com.javastik.jdbc.*;
-import com.javastik.jdbc.DatabaseJsonRenderer.JsonRenderType;
-import com.javastik.jdbc.StatementWithParams.SqlQueryParam;
+import com.javastik.database.ConnectionFactory;
+import com.javastik.database.DatabaseSingleTransaction;
+import com.javastik.database.PlainConnectionFactory;
+import com.javastik.database.StatementWithParams;
+import com.javastik.database.DatabaseJsonRenderer.JsonRenderType;
+import com.javastik.database.StatementWithParams.SqlQueryParam;
+import com.javastik.logging.LoggingFactory;
+import com.javastik.*;
 
 public class PlainConnectionTests {
     
-    private static Database database;
+    static final Logger log = LoggingFactory.loggerForThisClass();
+    
+    static final Random randomGenerator = new Random();
+    
+    public static Integer getRandomNumber(int max) {
+        return randomGenerator.nextInt(max);
+    }
+    
+    private static DatabaseSingleTransaction database;
     private static ConnectionFactory provider;
     
     @BeforeClass
     public static void before() {
         provider = PlainConnectionFactory.instance;
-        database = new Database(provider); 
+        database = new DatabaseSingleTransaction(provider); 
     } 
 
 	@Test
@@ -50,4 +65,34 @@ public class PlainConnectionTests {
         
     }
 
+	
+	@Test
+    public void execUpdateQuery() throws SQLException {
+	    
+	    StatementWithParams stmt = new StatementWithParams("insert into test (name) values (?)"); 
+        stmt.addParam(new SqlQueryParam(Types.VARCHAR, "New row data " + getRandomNumber(10000)));
+	    
+        String execUpdateQuery = database.execUpdateQuery(stmt);
+        assertNotNull("Result of insert cannot be null", execUpdateQuery);
+        assertEquals("{ \"ucnt\" : \"1\" }", execUpdateQuery);
+	    
+	}
+	
+	@Test
+    public void execUpdateQueryReturnInsertId() throws SQLException {
+	    
+	    StatementWithParams stmt = new StatementWithParams("insert into test (name) values (?)"); 
+        stmt.addParam(new SqlQueryParam(Types.VARCHAR, "New row data " + getRandomNumber(10000)));
+        
+        String execUpdateQuery = database.execUpdateQueryReturnInsertId(stmt);
+        assertNotNull("Result of insert cannot be null", execUpdateQuery);
+        assertTrue("", execUpdateQuery.indexOf("insertId") >= 0);
+	    
+	    
+	}
+	
+	
+	
+	
+	
 }

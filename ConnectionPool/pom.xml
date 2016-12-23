@@ -7,12 +7,17 @@
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>JDBC Connection pool vs. plain driver connection </name>
+	<inceptionYear>Since 2016</inceptionYear>
+	<description>Product catalogue for ASOD - GURU.  Please see the modules list on the left.</description>
+	<organization>
+		<name>IT Razvoj in svetovanje, Mitja Guštin s.p.</name>
+		<url>https://github.com/gustinmi</url>
+	</organization>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.7</java.version>
 	</properties>
-
 
 	<dependencies>
 		<dependency>
@@ -83,8 +88,17 @@
 		</plugins>
 	</reporting>
 
-
-
+	<developers>
+		<developer>
+			<id>MitjaGustin</id>
+			<name>Mitja Guštin</name>
+			<email>gustinmi@gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<organization>IT Razvoj in svetovanje, Mitja Guštin s.p.</organization>
+		</developer>
+	</developers>
 
 
 

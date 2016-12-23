@@ -1,4 +1,4 @@
-package com.javastik.jdbc.servlets;
+package com.javastik.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

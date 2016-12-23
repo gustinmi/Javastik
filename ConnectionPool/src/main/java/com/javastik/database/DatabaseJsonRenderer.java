@@ -1,4 +1,4 @@
-package com.javastik.jdbc;
+package com.javastik.database;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -25,6 +25,10 @@ public class DatabaseJsonRenderer {
          * Isto kot ARRAY, le da je brez layouta
          */
         ARRAY_WITHOUT_LAYOUT
+    }
+    
+    public static String displayUpdateCount(int uc) {
+        return String.format("{ \"ucnt\" : \"%s\" }", uc);
     }
     
     public static String displayResults(Statement stmt, JsonRenderType rType) throws SQLException {
